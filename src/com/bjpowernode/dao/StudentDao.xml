@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjpowernode.dao.StudentDao">
+
+    <select id="getById" parameterType="java.lang.String"  resultType="com.bjpowernode.domain.Student">
+    select * from text where id = #{id}
+    </select>
+    <insert id="save">
+        insert into text(id,name,age)value(#{id},#{name},#{age})
+    </insert>
+    <sql id="sql1">
+            select * from text
+    </sql>
+    <select id="select" parameterType="Student" resultType="Student">
+        <include refid="sql1"/> where id=#{id} and name=#{name}
+    </select>
+
+
+</mapper>
